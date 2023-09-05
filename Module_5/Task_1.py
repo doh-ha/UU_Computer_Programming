@@ -30,12 +30,13 @@ def pentagram(x, y, side):
     t = make_turtle(x, y)
     t.hideturtle()
     t.setheading(270 - 36/2)
+    t.fillcolor('green')
+    t.begin_fill()
     for i in range(5):
         t.speed(0)
         t.forward(side)
         t.left(180-36)
-        t.fillcolor('green')
-        t.begin_fill()
+    t.end_fill()
 
 
 def jump(t, x, y):
@@ -49,16 +50,14 @@ tricolore(-100, -100, 200)
 t = turtle.Turtle()
 t.hideturtle()
 
-
+t.color('green')
 for i in range(10):
 
     if i < 5:
-        t.fillcolor('green')
-        t.begin_fill()
+
         pentagram(-150 + i*100, -150, 100)
     else:
-        t.fillcolor('green')
-        t.begin_fill()
+
         pentagram(-650 + i*100, 250, 100)
 t.end_fill()
 
