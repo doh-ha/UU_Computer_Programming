@@ -32,7 +32,7 @@ def rectangle(x, y, width, height, color):
 def move_random(t):
     t.speed(0)
     t.forward(random.randrange(0, 25))
-    angle = t.heading()
+    angle = int(t.heading())
     t.left(random.randrange(angle-45, angle+45))
 
 
@@ -60,9 +60,25 @@ for i in range(500):
     move_random(t1)
     move_random(t2)
 
-    x_diff = t1_x-t2_x
-    y_diff = t1_y-t2_y
-    if abs(x_diff) <= 50 and abs(y_diff) <= 50:
+    pos_t1_list = list(t1.position())
+    pos_t2_list = list(t2.position())
+    print(pos_t1_list)
+    if (pos_t1_list[0] > 300 or pos_t1_list[0] < -200):
+        print("out of range")
+        t1.setheading(t1.towards(0, 0))
+
+    if (pos_t1_list[1] > 300 or pos_t1_list[1] < -200):
+        print("out of range")
+        t1.setheading(t1.towards(0, 0))
+
+    if (pos_t2_list[0] > 300 or pos_t2_list[0] < -200):
+        print("out of range")
+        t2.setheading(t2.towards(0, 0))
+    if (pos_t2_list[1] > 300 or pos_t2_list[1] < -200):
+        print("out of range")
+        t2.setheading(t2.towards(0, 0))
+
+    if abs(pos_t1_list[0]-pos_t2_list[0]) <= 50 and abs(pos_t1_list[1]-pos_t2_list[1]) <= 50:
 
         t1.write("Close")
         count += 1

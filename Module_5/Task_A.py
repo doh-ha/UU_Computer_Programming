@@ -9,7 +9,7 @@ def make_turtle(x, y):
 
 def rectangle(x, y, width, height, color):
     t = make_turtle(x, y)
-    t.hideturtle()
+    # t.hideturtle()
     t.fillcolor(color)
     t.begin_fill()
     for dist in [width, height, width, height]:
@@ -28,7 +28,7 @@ def tricolore(x, y, h):
 
 def pentagram(x, y, side):
     t = make_turtle(x, y)
-    t.hideturtle()
+    # t.hideturtle()
     t.setheading(270 - 36/2)
     t.fillcolor('green')
     t.begin_fill()
@@ -50,7 +50,6 @@ tricolore(-100, -100, 200)
 t = turtle.Turtle()
 t.hideturtle()
 
-t.color('green')
 for i in range(10):
 
     if i < 5:
