@@ -1,2 +1,2 @@
-print('smooth_b(x, 1): ', smooth_b(x, 1))
-# print('smooth_b(x, 2): ', smooth_b(x, 2))
+        # r.insert(i, a[0])  # extend left side
+        # r.insert(-i, a[-1])  # extend right side
