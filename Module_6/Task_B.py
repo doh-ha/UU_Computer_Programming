@@ -34,14 +34,9 @@ def smooth_a(x, n):
 
 
 def round_list(a_list, ndigits):
-    for i in range(len(a_list)):
 
-        # print(a_list[i])
-        new_list = a_list.copy()
-        new_list[i] = round(a_list[i], ndigits)
-        # print(new_list[i])
-    # print(new_list)
-    return new_list
+    rounded_list = [round(z, ndigits) for z in a_list]
+    return rounded_list
 
 
 # main
