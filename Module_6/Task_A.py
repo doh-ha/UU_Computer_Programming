@@ -1,10 +1,11 @@
 def extend(x, n):
+    # extend left side 000000000
     r = [0 for i in range(len(x)+n)]
 
     # add original list
-    r[n:] = x
+    r[n:] = x  # 012645012
 
-    # extend right side
+    # extend right side 0126450120
     for i in range(n):
         r.append(0)
 
@@ -29,8 +30,8 @@ def smooth_a(x, n):
             sum += r[i+n+(j+1)]
         new[i+n] = sum/(2*n+1)
 
-    new = new[n:len(r)-n]  # slice to the original size
-    return new
+    new2 = new[n:len(r)-n]  # slice to the original size
+    return new2
 
 
 def smooth_b(x, n):
@@ -53,13 +54,13 @@ def smooth_b(x, n):
 
         new[i+n] = sum/num
 
-    new = new[n:len(r)-n]  # slice to the original size
-    return new
+    new2 = new[n:len(r)-n]  # slice to the original size
+    return new2
 
 
 # main
 x = [1, 2, 6, 4, 5, 0, 1, 2]
 print('smooth_a(x, 1): ', smooth_a(x, 1))
-print('smooth_a(x, 2): ', smooth_a(x, 2))
-print('smooth_b(x, 1): ', smooth_b(x, 1))
+print('smooth_a(x, 8): ', smooth_a(x, 8))
+print('smooth_b(x, 2): ', smooth_b(x, 2))
 print('smooth_b(x, 2): ', smooth_b(x, 2))
