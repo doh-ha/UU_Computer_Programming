@@ -1,32 +1,37 @@
 
-from collections import Counter
-
+import re
 words_cnt = 0
-diff_cnt = 0
-dic = {}
-n = int(input("input n:"))
-# m = int(input("input m:"))
+
+
 with open(r"/Users/Doh/Developer/UU_Computer_Programming/Module_7/TextFile.rtf", 'r') as file:
-    text = file.read().lower()
+    text_with_symbols = file.read().lower()
+    text = re.sub('[-=+,#/\?:^.@*\"※~ㆍ!』‘|\(\)\[\]`\'…》\”\“\’·]',
+                  " ", text_with_symbols)
+    counts = dict()
+
     words = text.split()
-    words_cnt = len(words)
 
-    # store multiple items in a single variable
-    diff_cnt = len(set(text.split()))
+    counts = dict()
+    for word in words:
+        words_cnt += 1  # for total words
+        if word in counts:
+            counts[word] += 1
+        else:
+            counts[word] = 1
+    sorted_counts = sorted(
+        counts.items(), key=lambda x: x[1], reverse=True)
+    print(sorted_counts)
 
-    # for character in text:
-    #     if character.isalpha():
-    #         character = character.lower()
-    print(text.split())
+    def most_common(n):
+        return (sorted_counts[:n])
 
-    Counter = Counter(words)
-    most_words = Counter.most_common(n)
-
-    print(words)
+    def least_common(m):
+        return (sorted_counts[-m:])
 
 
 print('1. Total number of words: ', words_cnt)
-print('2. Number of different words: ', diff_cnt)
-print('3. n most common words: ', most_words)
-
-# print('4. m least words: ', least_words)
+print('2. Number of different words: ', len(counts))
+n = int(input("input n:"))
+print('3. n most common words: ', most_common(n))
+m = int(input("input m:"))
+print('4. m least words: ', least_common(m))
