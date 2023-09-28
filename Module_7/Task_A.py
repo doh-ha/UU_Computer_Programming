@@ -11,7 +11,6 @@ with open(r"/Users/Doh/Developer/UU_Computer_Programming/Module_7/TextFile.rtf",
 
     words = text.split()
 
-    counts = dict()
     for word in words:
         words_cnt += 1  # for total words
         if word in counts:
