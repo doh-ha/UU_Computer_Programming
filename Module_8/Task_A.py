@@ -17,8 +17,6 @@ def read_csv_to_list(filename):
                 floatList = list(map(float, strList))
                 dic[country_code] = floatList
 
-            # rows.append(row)
-
 
 row = read_csv_to_list("Module_8/CO2Emissions_filtered.csv")
 print(dic)

@@ -3,9 +3,9 @@ def extend(x, n):
     r = [0 for i in range(len(x)+n)]
 
     # add original list
-    r[n:] = x  # 012645012
+    r[n:] = x
 
-    # extend right side 0126450120
+    # extend right side
     for i in range(n):
         r.append(0)
 
