@@ -1,4 +1,8 @@
+import destinations
+
 # Traffic system components
+
+
 class Vehicle:
     """Represents vehicles in traffic simulations"""
 
