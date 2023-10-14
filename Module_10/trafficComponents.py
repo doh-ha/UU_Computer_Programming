@@ -1,4 +1,3 @@
-import destinations
 
 # Traffic system components
 

@@ -12,9 +12,9 @@ class TrafficSystem:
         """Initialize all components of the traffic
         system."""
         self.time = 0
-        self.first_lane = tc.Lane(10)  # Create the first file
-        self.second_lane = tc.Lane(10)  # Create the second file
-        self.light = tc.Light(7, 3)  # Create the traffic light
+        self.first_lane = tc.Lane(5)  # Create the first file
+        self.second_lane = tc.Lane(5)  # Create the second file
+        self.light = tc.Light(10, 8)  # Create the traffic light
         # Create the destination generator
         self.destination_generator = destinations.DestinationGenerator()
         self.queue = []  # Initialize an empty queue for vehicles
@@ -59,7 +59,7 @@ class TrafficSystem:
 
 def main():
     ts = TrafficSystem()
-    for i in range(100):
+    for i in range(34):
         ts.snapshot()
         ts.step()
         sleep(0.1)  # Pause for 0.1 s.
