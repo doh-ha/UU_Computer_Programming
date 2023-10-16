@@ -43,6 +43,7 @@ class Lane:
             if self.vehicles[i] is not None and self.vehicles[i - 1] is None:
                 self.vehicles[i - 1] = self.vehicles[i]
                 self.vehicles[i] = None
+            # just find first None and remove. And then append None in the last
 
     def last_free(self):
         """Return True if the last space is free, otherwise False."""
@@ -51,10 +52,9 @@ class Lane:
     def enter(self, vehicle):
         """Store the vehicle last in the file."""
         if self.last_free():
-            for i in range(self.length - 1, -1, -1):
-                if self.vehicles[i] is None:
-                    self.vehicles[i] = vehicle
-                    break
+
+            if self.vehicles[-1] is None:
+                self.vehicles[-1] = vehicle
 
     def number_in_lane(self):
         """Return the number of vehicles in the file."""
@@ -123,8 +123,8 @@ def demo_light():
 
 def main():
     """Demonstrates the classes"""
-    # print('\nLight demonstration\n')
-    # demo_light()
+    print('\nLight demonstration\n')
+    demo_light()
     print('\nLane demonstration')
     demo_lane()
 
